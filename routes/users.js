@@ -4,7 +4,7 @@ const Post = require('../models/post');
 
 const { sha256 } = require("js-sha256");
 
-// Register
+// Update
 router.put("/:id", async (req, res) => {
 
     if (req.body.userId === req.params.id) {
