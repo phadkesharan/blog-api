@@ -21,11 +21,9 @@ router.put("/:id", async (req, res) => {
                     new: true
                 }
             );
-            console.log(user);
             res.status(200).json(user);
         }
         catch (err) {
-            console.log(err);
             res.status(500).json(err);
         }
 
