@@ -23,6 +23,7 @@ app.use(express.json());
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
 const postRoute = require('./routes/posts');
+const categoryRoute = require('./routes/categories');
 
 mongoose
     .connect(process.env.MONGO_URL, {
@@ -42,6 +43,7 @@ app.post("/api/uploads", upload.single('file'), (req, res) => {
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
+app.use('/api/categories', categoryRoute);
 
 
 
