@@ -19,6 +19,11 @@ const PostSchema = new mongoose.Schema({
     catergories: {
         type: Array,
         required: false
+    },
+
+    img: {
+        type: String,
+        required: false
     }
 },
     { timestamps: true }
