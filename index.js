@@ -1,24 +1,27 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const app = express();
+const path = require('path');
 const mongoose = require('mongoose');
 dotenv.config();
+
+
+app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "/images")))
+
 
 const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./images/");
+        cb(null, "images");
     },
     filename: (req, file, cb) => {
-        cb(null, "temp.jpeg");
+        cb(null, String(req.body.name));
     }
 })
 
 const upload = multer({ storage: storage });
-
-
-app.use(express.json());
 
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
@@ -51,4 +54,5 @@ app.listen(8000, (err) => {
     if (!err)
         console.log("server running on port 8000")
 })
+
 

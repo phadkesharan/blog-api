@@ -78,6 +78,8 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json("Post does not exist");
 
         try {
+            console.log("username: ", post.username);
+            console.log("username: ", req.body.username);
             if (post.username === req.body.username) {
                 await Post.findByIdAndDelete(req.params.id)
                 res.status(200).json("Post deleted successfully!");

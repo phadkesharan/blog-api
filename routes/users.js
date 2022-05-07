@@ -40,6 +40,8 @@ router.put("/:id", async (req, res) => {
 // Delete
 router.delete('/:id', async (req, res) => {
 
+    console.log(req.params.id, " ", req.body.userId);
+
     if (req.params.id === req.body.userId) {
 
         try {
